@@ -45,6 +45,17 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  --color-brand-50: oklch(0.97 0.02 165);
+  --color-brand-100: oklch(0.94 0.04 165);
+  --color-brand-200: oklch(0.88 0.08 165);
+  --color-brand-300: oklch(0.80 0.12 165);
+  --color-brand-400: oklch(0.72 0.14 165);
+  --color-brand-500: oklch(0.62 0.16 165);
+  --color-brand-600: oklch(0.52 0.14 165);
+  --color-brand-700: oklch(0.42 0.12 165);
+  --color-brand-800: oklch(0.34 0.10 165);
+  --color-brand-900: oklch(0.26 0.06 165);
+  --color-brand-950: oklch(0.18 0.04 165);
 }
 
 :root {
