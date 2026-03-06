@@ -36,7 +36,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md -- Scaffold Next.js 16 app, install dependencies, configure tooling, define complete Drizzle database schema
-- [ ] 01-02-PLAN.md -- Build marketing landing page with Stripe-inspired design, set up Resend email infrastructure
+- [x] 01-02-PLAN.md -- Build marketing landing page with Stripe-inspired design, set up Resend email infrastructure
 - [ ] 01-03-PLAN.md -- Deploy to Vercel + Railway + Neon, create worker scaffold, verify full stack
 
 ### Phase 2: Authentication
