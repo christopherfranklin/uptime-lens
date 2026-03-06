@@ -1,7 +1,7 @@
 # Requirements: Uptime Lens
 
 **Defined:** 2026-03-06
-**Core Value:** Indie developers know instantly when their sites or services go down — and trust the product enough to pay for it month over month.
+**Core Value:** Indie developers know instantly when their sites or services go down -- and trust the product enough to pay for it month over month.
 
 ## v1 Requirements
 
@@ -89,37 +89,37 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | — | Pending |
-| AUTH-02 | — | Pending |
-| AUTH-03 | — | Pending |
-| AUTH-04 | — | Pending |
-| MON-01 | — | Pending |
-| MON-02 | — | Pending |
-| MON-03 | — | Pending |
-| MON-04 | — | Pending |
-| MON-05 | — | Pending |
-| MON-06 | — | Pending |
-| MON-07 | — | Pending |
-| CHK-01 | — | Pending |
-| CHK-02 | — | Pending |
-| CHK-03 | — | Pending |
-| ALR-01 | — | Pending |
-| ALR-02 | — | Pending |
-| ALR-03 | — | Pending |
-| DASH-01 | — | Pending |
-| DASH-02 | — | Pending |
-| DASH-03 | — | Pending |
-| DASH-04 | — | Pending |
-| BILL-01 | — | Pending |
-| BILL-02 | — | Pending |
-| BILL-03 | — | Pending |
-| BILL-04 | — | Pending |
+| AUTH-01 | Phase 2 | Pending |
+| AUTH-02 | Phase 2 | Pending |
+| AUTH-03 | Phase 2 | Pending |
+| AUTH-04 | Phase 2 | Pending |
+| MON-01 | Phase 3 | Pending |
+| MON-02 | Phase 3 | Pending |
+| MON-03 | Phase 3 | Pending |
+| MON-04 | Phase 3 | Pending |
+| MON-05 | Phase 4 | Pending |
+| MON-06 | Phase 4 | Pending |
+| MON-07 | Phase 5 | Pending |
+| CHK-01 | Phase 4 | Pending |
+| CHK-02 | Phase 4 | Pending |
+| CHK-03 | Phase 4 | Pending |
+| ALR-01 | Phase 5 | Pending |
+| ALR-02 | Phase 5 | Pending |
+| ALR-03 | Phase 5 | Pending |
+| DASH-01 | Phase 6 | Pending |
+| DASH-02 | Phase 6 | Pending |
+| DASH-03 | Phase 6 | Pending |
+| DASH-04 | Phase 6 | Pending |
+| BILL-01 | Phase 7 | Pending |
+| BILL-02 | Phase 7 | Pending |
+| BILL-03 | Phase 7 | Pending |
+| BILL-04 | Phase 7 | Pending |
 
 **Coverage:**
 - v1 requirements: 25 total
-- Mapped to phases: 0
-- Unmapped: 25 ⚠️
+- Mapped to phases: 25
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-06*
-*Last updated: 2026-03-06 after initial definition*
+*Last updated: 2026-03-06 after roadmap creation*
