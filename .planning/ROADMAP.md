@@ -24,7 +24,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Phase Details
 
 ### Phase 1: Project Foundation
-**Goal**: A running Next.js application with a complete database schema and development environment ready for feature work
+**Goal**: A running Next.js 16 application with complete database schema (including rollup tables), Resend email infrastructure, marketing landing page, and full deployment across Vercel + Railway + Neon -- ready for feature work
 **Depends on**: Nothing (first phase)
 **Requirements**: None (infrastructure phase -- enables all subsequent requirements)
 **Success Criteria** (what must be TRUE):
@@ -32,11 +32,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. All database tables exist (users, monitors, heartbeats, hourly/daily rollup tables, incidents, subscriptions) with proper indexes and foreign keys
   3. Drizzle ORM is configured with typed schema and migrations run successfully
   4. Resend email sending works (verified with a test send) with SPF/DKIM/DMARC configured on the sending domain
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md -- Scaffold Next.js 16 app, install dependencies, configure tooling, define complete Drizzle database schema
+- [ ] 01-02-PLAN.md -- Build marketing landing page with Stripe-inspired design, set up Resend email infrastructure
+- [ ] 01-03-PLAN.md -- Deploy to Vercel + Railway + Neon, create worker scaffold, verify full stack
 
 ### Phase 2: Authentication
 **Goal**: Users can create accounts and securely access the application via passwordless magic link email
@@ -152,7 +153,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Foundation | 0/0 | Not started | - |
+| 1. Project Foundation | 0/3 | Planning complete | - |
 | 2. Authentication | 0/0 | Not started | - |
 | 3. Monitor Management | 0/0 | Not started | - |
 | 4. Check Engine | 0/0 | Not started | - |
