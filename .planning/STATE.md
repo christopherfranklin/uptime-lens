@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 2 context gathered
-last_updated: "2026-03-07T02:17:47.698Z"
-last_activity: 2026-03-07 -- Completed 01-03-PLAN.md (worker scaffold + infra verification)
+status: in-progress
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-07T02:58:28Z"
+last_activity: 2026-03-07 -- Completed 02-01-PLAN.md (auth infrastructure)
 progress:
   total_phases: 8
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_plans: 5
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Indie developers know instantly when their sites or services go down -- and trust the product enough to pay for it month over month.
-**Current focus:** Phase 1: Project Foundation
+**Current focus:** Phase 2: Authentication
 
 ## Current Position
 
-Phase: 1 of 8 (Project Foundation) -- COMPLETE
-Plan: 3 of 3 in current phase (all complete)
-Status: Phase 1 Complete
-Last activity: 2026-03-07 -- Completed 01-03-PLAN.md (worker scaffold + infra verification)
+Phase: 2 of 8 (Authentication)
+Plan: 1 of 2 in current phase
+Status: In Progress
+Last activity: 2026-03-07 -- Completed 02-01-PLAN.md (auth infrastructure)
 
-Progress: [██████████] 100%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 9.3min
-- Total execution time: 0.47 hours
+- Total plans completed: 4
+- Average duration: 10.3min
+- Total execution time: 0.68 hours
 
 **By Phase:**
 
@@ -53,6 +53,7 @@ Progress: [██████████] 100%
 | Phase 01 P01 | 15min | 2 tasks | 15 files |
 | Phase 01 P02 | 8min | 2 tasks | 10 files |
 | Phase 01 P03 | 5min | 2 tasks | 9 files |
+| Phase 02 P01 | 13min | 3 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Deleted root app/page.tsx in favor of app/(marketing)/page.tsx route group for landing page
 - [Phase 01]: Used nativeButton={false} on Base UI Button components rendered as Link elements to fix accessibility warning
 - [Phase 01]: Worker uses @neondatabase/serverless neon() for DB connectivity check, consistent with web app pattern
+- [Phase 02]: Used delegate pattern for vi.mock closures to solve Vitest module caching across tests
+- [Phase 02]: Installed @better-auth/drizzle-adapter as separate package (re-exported by better-auth but needs explicit install)
+- [Phase 02]: Fixed Biome v2 config (ignore -> includes) and lint script (--apply -> --write)
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-07T02:17:47.684Z
-Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-authentication/02-CONTEXT.md
+Last session: 2026-03-07T02:58:28Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-authentication/02-01-SUMMARY.md
