@@ -1,24 +1,22 @@
 import {
-  pgTable,
-  pgEnum,
-  integer,
-  text,
-  varchar,
-  timestamp,
-  real,
   bigint,
+  boolean,
   index,
+  integer,
+  pgEnum,
+  pgTable,
+  real,
+  text,
+  timestamp,
   uniqueIndex,
+  varchar,
 } from "drizzle-orm/pg-core";
 
 // ---- Enums ----
 
 export const monitorTypeEnum = pgEnum("monitor_type", ["http", "tcp", "ssl"]);
 
-export const monitorStatusEnum = pgEnum("monitor_status", [
-  "active",
-  "paused",
-]);
+export const monitorStatusEnum = pgEnum("monitor_status", ["active", "paused"]);
 
 export const incidentStatusEnum = pgEnum("incident_status", [
   "ongoing",
@@ -39,6 +37,7 @@ export const users = pgTable("users", {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   email: varchar({ length: 255 }).notNull().unique(),
   name: varchar({ length: 255 }),
+  emailVerified: boolean("email_verified").notNull().default(false),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
@@ -46,6 +45,70 @@ export const users = pgTable("users", {
     .notNull()
     .defaultNow(),
 });
+
+// ---- Better Auth Tables ----
+
+export const sessions = pgTable(
+  "sessions",
+  {
+    id: text().primaryKey(),
+    userId: integer("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    token: text().notNull().unique(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    ipAddress: text("ip_address"),
+    userAgent: text("user_agent"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [index("sessions_user_id_idx").on(table.userId)],
+);
+
+export const accounts = pgTable(
+  "accounts",
+  {
+    id: text().primaryKey(),
+    userId: integer("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    accountId: text("account_id").notNull(),
+    providerId: text("provider_id").notNull(),
+    accessToken: text("access_token"),
+    refreshToken: text("refresh_token"),
+    accessTokenExpiresAt: timestamp("access_token_expires_at", {
+      withTimezone: true,
+    }),
+    refreshTokenExpiresAt: timestamp("refresh_token_expires_at", {
+      withTimezone: true,
+    }),
+    scope: text(),
+    idToken: text("id_token"),
+    password: text(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (table) => [index("accounts_user_id_idx").on(table.userId)],
+);
+
+export const verifications = pgTable("verifications", {
+  id: text().primaryKey(),
+  identifier: text().notNull(),
+  value: text().notNull(),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }),
+  updatedAt: timestamp("updated_at", { withTimezone: true }),
+});
+
+// ---- Application Tables ----
 
 export const monitors = pgTable(
   "monitors",
