@@ -41,6 +41,7 @@ export function Hero() {
           <div className="mt-10 flex items-center justify-center gap-4">
             <Button
               size="lg"
+              nativeButton={false}
               className="h-12 px-8 text-base font-semibold bg-white text-brand-700 hover:bg-brand-50 shadow-lg shadow-brand-900/20 border-0"
               render={<Link href="/signup" />}
             >
@@ -49,6 +50,7 @@ export function Hero() {
             <Button
               variant="outline"
               size="lg"
+              nativeButton={false}
               className="h-12 px-8 text-base font-semibold text-white border-white/30 bg-white/10 hover:bg-white/20 hover:text-white"
               render={<Link href="#pricing" />}
             >

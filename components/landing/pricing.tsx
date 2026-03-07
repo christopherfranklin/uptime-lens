@@ -129,6 +129,7 @@ export function Pricing() {
               <CardFooter className="border-t-0 bg-transparent px-4 pb-6">
                 <Button
                   size="lg"
+                  nativeButton={false}
                   className={`w-full h-11 text-sm font-semibold ${
                     tier.popular
                       ? "bg-brand-500 text-white hover:bg-brand-600 border-0"
