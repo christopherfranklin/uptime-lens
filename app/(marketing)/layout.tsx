@@ -21,7 +21,7 @@ export default function MarketingLayout({
             href="/login"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Log in
+            Sign in
           </Link>
         </nav>
       </header>

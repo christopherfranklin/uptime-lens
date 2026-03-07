@@ -1,5 +1,11 @@
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 let mockSignInMagicLink: ReturnType<typeof vi.fn>;
 
@@ -24,9 +30,7 @@ describe("Login Page", () => {
   });
 
   test("renders email input field", async () => {
-    const { default: LoginPage } = await import(
-      "@/app/(auth)/login/page"
-    );
+    const { default: LoginPage } = await import("@/app/(auth)/login/page");
     render(<LoginPage />);
 
     const emailInput = screen.getByLabelText("Email address");
@@ -36,9 +40,7 @@ describe("Login Page", () => {
   });
 
   test("renders 'Send magic link' submit button", async () => {
-    const { default: LoginPage } = await import(
-      "@/app/(auth)/login/page"
-    );
+    const { default: LoginPage } = await import("@/app/(auth)/login/page");
     render(<LoginPage />);
 
     const submitButton = screen.getByRole("button", {
@@ -51,9 +53,7 @@ describe("Login Page", () => {
   test("shows 'Check your email' message after successful submission", async () => {
     mockSignInMagicLink.mockResolvedValue({ error: null });
 
-    const { default: LoginPage } = await import(
-      "@/app/(auth)/login/page"
-    );
+    const { default: LoginPage } = await import("@/app/(auth)/login/page");
     render(<LoginPage />);
 
     const emailInput = screen.getByLabelText("Email address");
@@ -74,9 +74,7 @@ describe("Login Page", () => {
   test("shows resend button in sent state", async () => {
     mockSignInMagicLink.mockResolvedValue({ error: null });
 
-    const { default: LoginPage } = await import(
-      "@/app/(auth)/login/page"
-    );
+    const { default: LoginPage } = await import("@/app/(auth)/login/page");
     render(<LoginPage />);
 
     const emailInput = screen.getByLabelText("Email address");
@@ -100,9 +98,7 @@ describe("Login Page", () => {
       error: { message: "Too many requests" },
     });
 
-    const { default: LoginPage } = await import(
-      "@/app/(auth)/login/page"
-    );
+    const { default: LoginPage } = await import("@/app/(auth)/login/page");
     render(<LoginPage />);
 
     const emailInput = screen.getByLabelText("Email address");
