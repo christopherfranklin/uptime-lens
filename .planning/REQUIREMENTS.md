@@ -9,7 +9,7 @@
 
 - [x] **AUTH-01**: User can sign up and log in via magic link (passwordless email)
 - [x] **AUTH-02**: User session persists across browser refresh
-- [ ] **AUTH-03**: User can log out from any page
+- [x] **AUTH-03**: User can log out from any page
 - [x] **AUTH-04**: User can change their email address
 
 ### Monitor Management
@@ -91,7 +91,7 @@
 |-------------|-------|--------|
 | AUTH-01 | Phase 2 | Complete |
 | AUTH-02 | Phase 2 | Complete |
-| AUTH-03 | Phase 2 | Pending |
+| AUTH-03 | Phase 2 | Complete |
 | AUTH-04 | Phase 2 | Complete |
 | MON-01 | Phase 3 | Pending |
 | MON-02 | Phase 3 | Pending |
