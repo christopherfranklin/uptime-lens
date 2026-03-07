@@ -2,7 +2,7 @@
 phase: 02
 slug: authentication
 status: draft
-nyquist_compliant: false
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-03-06
 ---
@@ -38,29 +38,36 @@ created: 2026-03-06
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 02-01-01 | 01 | 1 | AUTH-01 | unit | `npx vitest run tests/auth/magic-link.test.ts -x` | Wave 0 | ⬜ pending |
-| 02-01-01 | 01 | 1 | AUTH-01 | unit | `npx vitest run tests/auth/api-route.test.ts -x` | Wave 0 | ⬜ pending |
-| 02-01-02 | 01 | 1 | AUTH-02 | unit | `npx vitest run tests/auth/session.test.ts -x` | Wave 0 | ⬜ pending |
-| 02-01-03 | 01 | 1 | AUTH-03 | unit | `npx vitest run tests/auth/logout.test.ts -x` | Wave 0 | ⬜ pending |
-| 02-02-01 | 02 | 2 | AUTH-01 | unit | `npx vitest run tests/auth/login-page.test.tsx -x` | Wave 0 | ⬜ pending |
-| 02-02-02 | 02 | 2 | AUTH-04 | unit | `npx vitest run tests/auth/email-change.test.ts -x` | Wave 0 | ⬜ pending |
-| 02-02-03 | 02 | 2 | AUTH-03 | unit | `npx vitest run tests/auth/settings-page.test.tsx -x` | Wave 0 | ⬜ pending |
+| 02-01-01 | 01 | 1 | AUTH-01 | unit | `npx vitest run tests/auth/magic-link.test.ts -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-01-01 | 01 | 1 | AUTH-01 | unit | `npx vitest run tests/auth/api-route.test.ts -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-01-02 | 01 | 1 | AUTH-02 | unit | `npx vitest run tests/auth/session.test.ts -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-01-03 | 01 | 1 | AUTH-03 | unit | `npx vitest run tests/auth/logout.test.ts -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-02-01 | 02 | 2 | AUTH-01 | unit | `npx vitest run tests/auth/login-page.test.tsx -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-02-02 | 02 | 2 | AUTH-04 | unit | `npx vitest run tests/auth/email-change.test.ts -x` | Plan 01 Task 1 (Wave 0) | pending |
+| 02-02-03 | 02 | 2 | AUTH-03 | unit | `npx vitest run tests/auth/settings-page.test.tsx -x` | Plan 01 Task 1 (Wave 0) | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
 
 ---
 
 ## Wave 0 Requirements
 
-- [ ] `tests/auth/magic-link.test.ts` — covers AUTH-01 (auth config exports, magic link plugin presence)
-- [ ] `tests/auth/api-route.test.ts` — covers AUTH-01 (API route exports GET/POST)
-- [ ] `tests/auth/session.test.ts` — covers AUTH-02 (session config values)
-- [ ] `tests/auth/logout.test.ts` — covers AUTH-03 (logout action exports)
-- [ ] `tests/auth/login-page.test.tsx` — covers AUTH-01 (login page renders and submits)
-- [ ] `tests/auth/email-change.test.ts` — covers AUTH-04 (email change sends verification)
-- [ ] `tests/auth/settings-page.test.tsx` — covers AUTH-03 (settings page renders logout)
+Wave 0 test stubs are created by **Plan 01, Task 1** (prepended task). All 7 files are created as `test.todo()` stubs, then filled in with real tests in subsequent tasks:
 
-*Existing infrastructure (Vitest) covers framework needs. Wave 0 creates test stubs only.*
+- Plan 01 Task 3 fills in: magic-link, api-route, session, email-change tests
+- Plan 02 Task 2 fills in: login-page tests
+- Plan 02 Task 3 fills in: logout, settings-page tests
+
+Files:
+- [ ] `tests/auth/magic-link.test.ts` -- covers AUTH-01 (auth config exports, magic link plugin presence)
+- [ ] `tests/auth/api-route.test.ts` -- covers AUTH-01 (API route exports GET/POST)
+- [ ] `tests/auth/session.test.ts` -- covers AUTH-02 (session config values)
+- [ ] `tests/auth/logout.test.ts` -- covers AUTH-03 (logout action exports)
+- [ ] `tests/auth/login-page.test.tsx` -- covers AUTH-01 (login page renders and submits)
+- [ ] `tests/auth/email-change.test.ts` -- covers AUTH-04 (email change sends verification)
+- [ ] `tests/auth/settings-page.test.tsx` -- covers AUTH-03 (settings page renders logout)
+
+*Existing infrastructure (Vitest) covers framework needs. Wave 0 creates test stubs, subsequent tasks fill them in.*
 
 ---
 
@@ -77,11 +84,11 @@ created: 2026-03-06
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
-- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
-- [ ] No watch-mode flags
-- [ ] Feedback latency < 5s
-- [ ] `nyquist_compliant: true` set in frontmatter
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] Sampling continuity: no 3 consecutive tasks without automated verify
+- [x] Wave 0 covers all MISSING references
+- [x] No watch-mode flags
+- [x] Feedback latency < 5s
+- [x] `nyquist_compliant: true` set in frontmatter
 
-**Approval:** pending
+**Approval:** pending (plans revised, awaiting execution)
