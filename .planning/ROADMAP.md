@@ -48,11 +48,11 @@ Plans:
   2. User's session survives browser refresh without requiring re-login
   3. User can log out from any page in the application and is redirected to the landing page
   4. User can change their account email address (with verification of the new email)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md -- Install Better Auth, extend schema with auth tables, configure auth server/client, create API route and email templates
+- [ ] 02-02-PLAN.md -- Build login page, route protection, dashboard shell, settings page with email change and logout
 
 ### Phase 3: Monitor Management
 **Goal**: Users can manage a set of monitors for their sites and services through a complete CRUD interface
@@ -154,7 +154,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Foundation | 3/3 | Complete | 2026-03-07 |
-| 2. Authentication | 0/0 | Not started | - |
+| 2. Authentication | 0/2 | Not started | - |
 | 3. Monitor Management | 0/0 | Not started | - |
 | 4. Check Engine | 0/0 | Not started | - |
 | 5. Incident Detection and Alerting | 0/0 | Not started | - |
