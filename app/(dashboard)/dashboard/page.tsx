@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { desc, eq } from "drizzle-orm";
 import { verifySession } from "@/lib/dal";
-import { db, monitors } from "@/lib/db";
+import { getMonitorsWithStats } from "@/lib/queries/monitors";
 import { MonitorList } from "@/components/monitors/monitor-list";
 
 export const metadata: Metadata = {
@@ -11,15 +10,11 @@ export const metadata: Metadata = {
 export default async function DashboardPage() {
   const session = await verifySession();
 
-  const userMonitors = await db
-    .select()
-    .from(monitors)
-    .where(eq(monitors.userId, session.user.id))
-    .orderBy(desc(monitors.createdAt));
+  const monitors = await getMonitorsWithStats(session.user.id);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-      <MonitorList monitors={userMonitors} />
+      <MonitorList monitors={monitors} />
     </div>
   );
 }
