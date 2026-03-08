@@ -7,6 +7,21 @@ import { probeTcp } from "./probes/tcp";
 import { probeSsl } from "./probes/ssl";
 import { parseTcpTarget, parseHostname } from "./probes/url";
 import { upsertHourlyRollup } from "./rollup";
+import {
+  openIncident,
+  resolveIncident,
+  getOngoingIncident,
+  getUserEmailForMonitor,
+} from "./incidents";
+import { sendAlertEmail } from "./emails/send";
+import {
+  downtimeEmailHtml,
+  recoveryEmailHtml,
+  formatDuration,
+} from "./emails/templates";
+import { checkSslExpiry } from "./ssl-expiry";
+
+const APP_URL = process.env.APP_URL || "https://uptimelens.io";
 
 const TICK_INTERVAL_MS = 30_000; // 30 seconds
 
@@ -135,4 +150,72 @@ export async function _checkMonitor(
 
   // Upsert hourly rollup
   await upsertHourlyRollup(db, monitor.id, result, checkedAt);
+
+  // --- Incident State Machine ---
+
+  // 1. Check for incident OPEN condition
+  if (newConsecutiveFailures >= 3) {
+    const existing = await getOngoingIncident(db, monitor.id);
+    if (!existing) {
+      const cause =
+        result.error ||
+        (result.statusCode ? `HTTP ${result.statusCode}` : "Unknown");
+      await openIncident(db, monitor.id, cause, checkedAt);
+      // Fire-and-forget email
+      try {
+        const email = await getUserEmailForMonitor(db, monitor.id);
+        if (email) {
+          const html = downtimeEmailHtml({
+            monitorName: monitor.name,
+            url: monitor.url,
+            cause,
+            detectedAt: checkedAt.toISOString(),
+            dashboardUrl: `${APP_URL}/dashboard`,
+          });
+          await sendAlertEmail({
+            to: email,
+            subject: `Down: ${monitor.name}`,
+            html,
+          });
+        }
+      } catch (err) {
+        console.error("[worker] Failed to send downtime alert:", err);
+      }
+    }
+  }
+
+  // 2. Check for incident CLOSE condition
+  if (result.status === 1) {
+    const ongoing = await getOngoingIncident(db, monitor.id);
+    if (ongoing) {
+      await resolveIncident(db, ongoing.id, monitor.id, checkedAt);
+      try {
+        const email = await getUserEmailForMonitor(db, monitor.id);
+        if (email) {
+          const duration = formatDuration(
+            checkedAt.getTime() - ongoing.startedAt.getTime(),
+          );
+          const html = recoveryEmailHtml({
+            monitorName: monitor.name,
+            url: monitor.url,
+            downtimeDuration: duration,
+            recoveredAt: checkedAt.toISOString(),
+            dashboardUrl: `${APP_URL}/dashboard`,
+          });
+          await sendAlertEmail({
+            to: email,
+            subject: `Recovered: ${monitor.name}`,
+            html,
+          });
+        }
+      } catch (err) {
+        console.error("[worker] Failed to send recovery alert:", err);
+      }
+    }
+  }
+
+  // 3. Check SSL expiry (for monitors with sslExpiresAt in result)
+  if (result.sslExpiresAt) {
+    await checkSslExpiry(db, monitor, result.sslExpiresAt);
+  }
 }

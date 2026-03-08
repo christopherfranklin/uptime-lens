@@ -14,6 +14,23 @@ vi.mock("../../worker/src/probes/ssl", () => ({
 vi.mock("../../worker/src/rollup", () => ({
   upsertHourlyRollup: vi.fn().mockResolvedValue(undefined),
 }));
+vi.mock("../../worker/src/incidents", () => ({
+  openIncident: vi.fn().mockResolvedValue(undefined),
+  resolveIncident: vi.fn().mockResolvedValue(undefined),
+  getOngoingIncident: vi.fn().mockResolvedValue(null),
+  getUserEmailForMonitor: vi.fn().mockResolvedValue(null),
+}));
+vi.mock("../../worker/src/emails/send", () => ({
+  sendAlertEmail: vi.fn().mockResolvedValue(undefined),
+}));
+vi.mock("../../worker/src/emails/templates", () => ({
+  downtimeEmailHtml: vi.fn().mockReturnValue("<html>downtime</html>"),
+  recoveryEmailHtml: vi.fn().mockReturnValue("<html>recovery</html>"),
+  formatDuration: vi.fn().mockReturnValue("5m"),
+}));
+vi.mock("../../worker/src/ssl-expiry", () => ({
+  checkSslExpiry: vi.fn().mockResolvedValue(undefined),
+}));
 
 import type { ProbeResult } from "../../worker/src/probes/types";
 import { probeHttp } from "../../worker/src/probes/http";
@@ -62,6 +79,8 @@ function createMockMonitor(overrides: Record<string, any> = {}) {
     checkIntervalSeconds: 180,
     timeoutMs: 10000,
     consecutiveFailures: 0,
+    isUp: true,
+    lastSslAlertDays: null,
     lastCheckedAt: null,
     createdAt: new Date(),
     updatedAt: new Date(),
