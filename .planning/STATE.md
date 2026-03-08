@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-08T01:27:08.061Z"
-last_activity: 2026-03-07 -- Completed 03-02-PLAN.md (monitor management UI)
+status: executing
+stopped_at: Completed 04-01-PLAN.md (worker DB & probes)
+last_updated: "2026-03-08T01:49:21Z"
+last_activity: 2026-03-08 -- Completed 04-01-PLAN.md (worker DB client & protocol probes)
 progress:
   total_phases: 8
   completed_phases: 3
-  total_plans: 7
-  completed_plans: 7
-  percent: 100
+  total_plans: 9
+  completed_plans: 8
+  percent: 89
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Indie developers know instantly when their sites or services go down -- and trust the product enough to pay for it month over month.
-**Current focus:** Phase 3: Monitor Management (complete)
+**Current focus:** Phase 4: Check Engine (in progress)
 
 ## Current Position
 
-Phase: 3 of 8 (Monitor Management)
-Plan: 2 of 2 in current phase (complete)
-Status: Phase complete -- ready for Phase 4 planning
-Last activity: 2026-03-07 -- Completed 03-02-PLAN.md (monitor management UI)
+Phase: 4 of 8 (Check Engine)
+Plan: 1 of 2 in current phase (complete)
+Status: Plan 1 complete -- ready for Plan 2 (tick loop orchestrator)
+Last activity: 2026-03-08 -- Completed 04-01-PLAN.md (worker DB client & protocol probes)
 
-Progress: [██████████] 100%
+Progress: [████████░░] 89%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 9.4min
-- Total execution time: 1.10 hours
+- Total plans completed: 8
+- Average duration: 8.9min
+- Total execution time: 1.18 hours
 
 **By Phase:**
 
@@ -57,6 +57,7 @@ Progress: [██████████] 100%
 | Phase 02 P02 | 12min | 3 tasks | 14 files |
 | Phase 03 P01 | 5min | 2 tasks | 3 files |
 | Phase 03 P02 | 8min | 3 tasks | 4 files |
+| Phase 04 P01 | 5min | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,9 @@ Recent decisions affecting current work:
 - [Phase 03]: Ownership verified via compound WHERE (id AND userId) before every mutation
 - [Phase 03]: MonitorList manages panel state internally to avoid server/client boundary issues
 - [Phase 03]: Used @base-ui/react Dialog for both slide-out panel and centered delete modal
+- [Phase 04]: Worker uses neon-http driver (not Pool/WebSocket) for low-frequency queries
+- [Phase 04]: Worker tsconfig rootDir set to parent with include narrowed to lib/db/**/*.ts
+- [Phase 04]: URL parsing uses protocol detection before new URL() to handle bare host:port
 
 ### Pending Todos
 
@@ -99,6 +103,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T01:27:08.044Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-check-engine/04-CONTEXT.md
+Last session: 2026-03-08T01:49:21Z
+Stopped at: Completed 04-01-PLAN.md (worker DB client & protocol probes)
+Resume file: .planning/phases/04-check-engine/04-02-PLAN.md

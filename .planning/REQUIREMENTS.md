@@ -18,8 +18,8 @@
 - [x] **MON-02**: User can edit an existing monitor's settings
 - [x] **MON-03**: User can delete a monitor
 - [x] **MON-04**: User can pause and resume a monitor
-- [ ] **MON-05**: User can monitor HTTP(S) URLs with expected status codes
-- [ ] **MON-06**: User can monitor TCP port connectivity
+- [x] **MON-05**: User can monitor HTTP(S) URLs with expected status codes
+- [x] **MON-06**: User can monitor TCP port connectivity
 - [ ] **MON-07**: User receives alerts when SSL certificates approach expiry (30, 14, 7, 1 day)
 
 ### Check Engine
@@ -97,8 +97,8 @@
 | MON-02 | Phase 3 | Complete |
 | MON-03 | Phase 3 | Complete |
 | MON-04 | Phase 3 | Complete |
-| MON-05 | Phase 4 | Pending |
-| MON-06 | Phase 4 | Pending |
+| MON-05 | Phase 4 | Complete |
+| MON-06 | Phase 4 | Complete |
 | MON-07 | Phase 5 | Pending |
 | CHK-01 | Phase 4 | Pending |
 | CHK-02 | Phase 4 | Pending |
