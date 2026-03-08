@@ -24,9 +24,9 @@
 
 ### Check Engine
 
-- [ ] **CHK-01**: Monitors are checked automatically every 3 minutes
-- [ ] **CHK-02**: Check results include response time, status, and error details
-- [ ] **CHK-03**: A monitor is only declared down after 2-3 consecutive failures (retry logic)
+- [x] **CHK-01**: Monitors are checked automatically every 3 minutes
+- [x] **CHK-02**: Check results include response time, status, and error details
+- [x] **CHK-03**: A monitor is only declared down after 2-3 consecutive failures (retry logic)
 
 ### Alerting
 
@@ -100,9 +100,9 @@
 | MON-05 | Phase 4 | Complete |
 | MON-06 | Phase 4 | Complete |
 | MON-07 | Phase 5 | Pending |
-| CHK-01 | Phase 4 | Pending |
-| CHK-02 | Phase 4 | Pending |
-| CHK-03 | Phase 4 | Pending |
+| CHK-01 | Phase 4 | Complete |
+| CHK-02 | Phase 4 | Complete |
+| CHK-03 | Phase 4 | Complete |
 | ALR-01 | Phase 5 | Pending |
 | ALR-02 | Phase 5 | Pending |
 | ALR-03 | Phase 5 | Pending |
