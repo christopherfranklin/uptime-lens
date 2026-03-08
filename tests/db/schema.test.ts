@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest";
 import { getTableColumns, getTableName } from "drizzle-orm";
 import { getTableConfig } from "drizzle-orm/pg-core";
+import { describe, expect, it } from "vitest";
 
 describe("Database Schema", () => {
   it("exports all 7 tables", async () => {
@@ -48,7 +48,7 @@ describe("Database Schema", () => {
     const tableConfig = getTableConfig(schema.heartbeatsHourly);
 
     const uniqueIndex = tableConfig.indexes.find(
-      (idx) => idx.config.unique === true
+      (idx) => idx.config.unique === true,
     );
 
     expect(uniqueIndex).toBeDefined();
@@ -60,7 +60,7 @@ describe("Database Schema", () => {
     const tableConfig = getTableConfig(schema.heartbeatsDaily);
 
     const uniqueIndex = tableConfig.indexes.find(
-      (idx) => idx.config.unique === true
+      (idx) => idx.config.unique === true,
     );
 
     expect(uniqueIndex).toBeDefined();

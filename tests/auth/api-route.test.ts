@@ -15,17 +15,13 @@ vi.mock("better-auth/next-js", () => ({
 
 describe("Auth API Route", () => {
   test("route module exports GET handler", async () => {
-    const route = await import(
-      "@/app/api/auth/[...all]/route"
-    );
+    const route = await import("@/app/api/auth/[...all]/route");
     expect(route.GET).toBeDefined();
     expect(typeof route.GET).toBe("function");
   });
 
   test("route module exports POST handler", async () => {
-    const route = await import(
-      "@/app/api/auth/[...all]/route"
-    );
+    const route = await import("@/app/api/auth/[...all]/route");
     expect(route.POST).toBeDefined();
     expect(typeof route.POST).toBe("function");
   });

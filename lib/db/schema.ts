@@ -34,7 +34,7 @@ export const subscriptionStatusEnum = pgEnum("subscription_status", [
 // ---- Tables ----
 
 export const users = pgTable("users", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: text().primaryKey(),
   email: varchar({ length: 255 }).notNull().unique(),
   name: varchar({ length: 255 }),
   emailVerified: boolean("email_verified").notNull().default(false),
@@ -52,7 +52,7 @@ export const sessions = pgTable(
   "sessions",
   {
     id: text().primaryKey(),
-    userId: integer("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     token: text().notNull().unique(),
@@ -73,7 +73,7 @@ export const accounts = pgTable(
   "accounts",
   {
     id: text().primaryKey(),
-    userId: integer("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     accountId: text("account_id").notNull(),
@@ -114,7 +114,7 @@ export const monitors = pgTable(
   "monitors",
   {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    userId: integer("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
     name: varchar({ length: 255 }).notNull(),
@@ -237,7 +237,7 @@ export const subscriptions = pgTable(
   "subscriptions",
   {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
-    userId: integer("user_id")
+    userId: text("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" })
       .unique(),

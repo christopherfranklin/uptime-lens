@@ -1,11 +1,11 @@
 import { betterAuth } from "better-auth";
-import { magicLink } from "better-auth/plugins";
-import { nextCookies } from "better-auth/next-js";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { nextCookies } from "better-auth/next-js";
+import { magicLink } from "better-auth/plugins";
 import { db } from "@/lib/db";
 import { resend } from "@/lib/email/resend";
-import MagicLinkEmail from "@/lib/email/templates/magic-link";
 import EmailChangeEmail from "@/lib/email/templates/email-change";
+import MagicLinkEmail from "@/lib/email/templates/magic-link";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -24,7 +24,7 @@ export const auth = betterAuth({
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
       void resend.emails.send({
-        from: "Uptime Lens <login@uptimelens.io>",
+        from: "Uptime Lens <onboarding@resend.dev>",
         to: user.email,
         subject: "Verify your new email for Uptime Lens",
         react: EmailChangeEmail({ url }),
@@ -36,7 +36,7 @@ export const auth = betterAuth({
       expiresIn: 600, // 10 minutes
       sendMagicLink: async ({ email, url }) => {
         void resend.emails.send({
-          from: "Uptime Lens <login@uptimelens.io>",
+          from: "Uptime Lens <onboarding@resend.dev>",
           to: email,
           subject: "Sign in to Uptime Lens",
           react: MagicLinkEmail({ url }),
