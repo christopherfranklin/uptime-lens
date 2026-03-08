@@ -36,7 +36,7 @@
 
 ### Dashboard
 
-- [ ] **DASH-01**: User sees all monitors in a list with current status (up/down/paused) and response time
+- [x] **DASH-01**: User sees all monitors in a list with current status (up/down/paused) and response time
 - [ ] **DASH-02**: User can view response time charts for a monitor (24h, 7d, 30d, 90d)
 - [ ] **DASH-03**: User can see uptime percentages per monitor (24h, 7d, 30d, 90d)
 - [ ] **DASH-04**: User can view a log of downtime incidents per monitor with start/end times and duration
@@ -106,7 +106,7 @@
 | ALR-01 | Phase 5 | Complete |
 | ALR-02 | Phase 5 | Complete |
 | ALR-03 | Phase 5 | Complete |
-| DASH-01 | Phase 6 | Pending |
+| DASH-01 | Phase 6 | Complete |
 | DASH-02 | Phase 6 | Pending |
 | DASH-03 | Phase 6 | Pending |
 | DASH-04 | Phase 6 | Pending |

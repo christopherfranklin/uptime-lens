@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Phase 6 context gathered
-last_updated: "2026-03-08T06:14:21.080Z"
-last_activity: 2026-03-08 -- Completed 05-03-PLAN.md (weekly digest)
+status: in_progress
+stopped_at: Completed 06-01-PLAN.md (data layer and monitor list)
+last_updated: "2026-03-08T06:38:15.000Z"
+last_activity: 2026-03-08 -- Completed 06-01-PLAN.md (data layer and monitor list)
 progress:
   total_phases: 8
   completed_phases: 5
-  total_plans: 12
-  completed_plans: 12
-  percent: 100
+  total_plans: 14
+  completed_plans: 13
+  percent: 93
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Indie developers know instantly when their sites or services go down -- and trust the product enough to pay for it month over month.
-**Current focus:** Phase 5: Incident Detection and Alerting (complete)
+**Current focus:** Phase 6: Dashboard (in progress)
 
 ## Current Position
 
-Phase: 5 of 8 (Incident Detection and Alerting)
-Plan: 3 of 3 in current phase (complete)
-Status: Phase 05 complete -- all alerting plans delivered
-Last activity: 2026-03-08 -- Completed 05-03-PLAN.md (weekly digest)
+Phase: 6 of 8 (Dashboard)
+Plan: 1 of 2 in current phase (complete)
+Status: 06-01 complete -- data layer and monitor list delivered
+Last activity: 2026-03-08 -- Completed 06-01-PLAN.md (data layer and monitor list)
 
-Progress: [██████████] 100%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
-- Average duration: 8.1min
-- Total execution time: 1.62 hours
+- Total plans completed: 13
+- Average duration: 7.8min
+- Total execution time: 1.70 hours
 
 **By Phase:**
 
@@ -62,6 +62,7 @@ Progress: [██████████] 100%
 | Phase 05 P01 | 10min | 2 tasks | 11 files |
 | Phase 05 P02 | 7min | 2 tasks | 5 files |
 | Phase 05 P03 | 4min | 2 tasks | 3 files |
+| Phase 06 P01 | 5min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -106,6 +107,9 @@ Recent decisions affecting current work:
 - [Phase 05]: selectDistinct + innerJoin to find users with monitors (skips zero-monitor users at query level)
 - [Phase 05]: Per-user lastDigestSentAt dedup prevents double-sends on same Monday
 - [Phase 05]: No rollup data for a monitor = 100% uptime assumption (new monitors with no checks)
+- [Phase 06]: N+1 query approach for monitor stats (simple, fine for 5-20 monitors)
+- [Phase 06]: Row click navigates to /monitors/[id] via Link, replacing openEdit panel behavior
+- [Phase 06]: Down monitors display "--" for response time
 
 ### Pending Todos
 
@@ -113,12 +117,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research]: Tremor + Next.js 16 / React 19.2 compatibility needs verification during Phase 6 planning
 - [Research]: BullMQ repeatable job behavior at scale (500+ monitors) needs validation during Phase 4 planning
 - [Research]: Neon connection pooling under write-heavy worker load needs validation during Phase 4 planning
 
 ## Session Continuity
 
-Last session: 2026-03-08T06:14:21.041Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-dashboard/06-CONTEXT.md
+Last session: 2026-03-08T06:38:15Z
+Stopped at: Completed 06-01-PLAN.md (data layer and monitor list)
+Resume file: .planning/phases/06-dashboard/06-02-PLAN.md
