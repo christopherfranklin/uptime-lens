@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Monitor Management** - CRUD interface for creating, editing, deleting, and pausing monitors (completed 2026-03-08)
 - [ ] **Phase 4: Check Engine** - Background worker that executes HTTP, TCP, and SSL checks on a 3-minute schedule with retry logic
 - [ ] **Phase 5: Incident Detection and Alerting** - State machine for incident lifecycle plus email notifications on downtime, recovery, SSL expiry, and weekly digest
-- [ ] **Phase 6: Dashboard** - Monitor list with status, response time charts, uptime percentages, and incident history
+- [x] **Phase 6: Dashboard** - Monitor list with status, response time charts, uptime percentages, and incident history (completed 2026-03-08)
 - [ ] **Phase 7: Billing and Plan Enforcement** - Free trial, Stripe subscription, monitor limits per plan, and failed payment handling
 - [ ] **Phase 8: Production Hardening** - Data retention jobs, error monitoring, rate limiting, security headers, and onboarding polish
 
@@ -110,7 +110,7 @@ Plans:
   2. User can view response time line charts for any monitor across 24-hour, 7-day, 30-day, and 90-day windows
   3. User can see uptime percentage for any monitor across 24-hour, 7-day, 30-day, and 90-day windows
   4. User can view a chronological log of downtime incidents for any monitor with start time, end time, and duration
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 06-01-PLAN.md -- Install Recharts, create data query modules and utilities, upgrade monitor list with status/response-time/uptime and detail page navigation
@@ -159,6 +159,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Monitor Management | 2/2 | Complete   | 2026-03-08 |
 | 4. Check Engine | 0/2 | Not started | - |
 | 5. Incident Detection and Alerting | 0/3 | Not started | - |
-| 6. Dashboard | 0/2 | Not started | - |
+| 6. Dashboard | 2/2 | Complete   | 2026-03-08 |
 | 7. Billing and Plan Enforcement | 0/0 | Not started | - |
 | 8. Production Hardening | 0/0 | Not started | - |
