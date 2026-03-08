@@ -38,6 +38,7 @@ export const users = pgTable("users", {
   email: varchar({ length: 255 }).notNull().unique(),
   name: varchar({ length: 255 }),
   emailVerified: boolean("email_verified").notNull().default(false),
+  lastDigestSentAt: timestamp("last_digest_sent_at", { withTimezone: true }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
     .defaultNow(),
@@ -127,6 +128,8 @@ export const monitors = pgTable(
       .default(180),
     timeoutMs: integer("timeout_ms").notNull().default(10000),
     consecutiveFailures: integer("consecutive_failures").notNull().default(0),
+    isUp: boolean("is_up").notNull().default(true),
+    lastSslAlertDays: integer("last_ssl_alert_days"),
     lastCheckedAt: timestamp("last_checked_at", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()
