@@ -60,7 +60,7 @@ Progress: [██████████] 100%
 | Phase 04 P01 | 5min | 2 tasks | 12 files |
 | Phase 04 P02 | 7min | 3 tasks | 5 files |
 | Phase 05 P01 | 10min | 2 tasks | 11 files |
-| Phase 05 P02 | 5min | 2 tasks | 4 files |
+| Phase 05 P02 | 7min | 2 tasks | 5 files |
 | Phase 05 P03 | 4min | 2 tasks | 3 files |
 
 ## Accumulated Context
@@ -100,6 +100,9 @@ Recent decisions affecting current work:
 - [Phase 05]: HTML template literal strings instead of React Email -- worker lacks JSX, alerts are simple
 - [Phase 05]: Vitest 4 constructor mocks require function keyword, not arrow functions
 - [Phase 05]: sendAlertEmail exports _resetClient for test isolation instead of vi.resetModules
+- [Phase 05]: SSL expiry uses tightest-match threshold algorithm (iterate descending, take last match) for correct threshold detection
+- [Phase 05]: Expired cert (daysUntilExpiry < 0) handled as special threshold 0, separate from standard threshold logic
+- [Phase 05]: Incident open guard uses getOngoingIncident query (robust) rather than consecutiveFailures check (fragile)
 - [Phase 05]: selectDistinct + innerJoin to find users with monitors (skips zero-monitor users at query level)
 - [Phase 05]: Per-user lastDigestSentAt dedup prevents double-sends on same Monday
 - [Phase 05]: No rollup data for a monitor = 100% uptime assumption (new monitors with no checks)
