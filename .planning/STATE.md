@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in_progress
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-08T05:27:30Z"
-last_activity: 2026-03-08 -- Completed 05-01-PLAN.md (alerting foundation)
+stopped_at: Completed 05-03-PLAN.md
+last_updated: "2026-03-08T05:36:48Z"
+last_activity: 2026-03-08 -- Completed 05-03-PLAN.md (weekly digest)
 progress:
   total_phases: 8
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 12
-  completed_plans: 10
-  percent: 83
+  completed_plans: 12
+  percent: 100
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** Indie developers know instantly when their sites or services go down -- and trust the product enough to pay for it month over month.
-**Current focus:** Phase 5: Incident Detection and Alerting (in progress)
+**Current focus:** Phase 5: Incident Detection and Alerting (complete)
 
 ## Current Position
 
 Phase: 5 of 8 (Incident Detection and Alerting)
-Plan: 1 of 3 in current phase (complete)
-Status: Plan 05-01 complete -- alerting foundation built
-Last activity: 2026-03-08 -- Completed 05-01-PLAN.md (alerting foundation)
+Plan: 3 of 3 in current phase (complete)
+Status: Phase 05 complete -- all alerting plans delivered
+Last activity: 2026-03-08 -- Completed 05-03-PLAN.md (weekly digest)
 
-Progress: [████████░░] 83%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
-- Average duration: 8.7min
-- Total execution time: 1.47 hours
+- Total plans completed: 12
+- Average duration: 8.1min
+- Total execution time: 1.62 hours
 
 **By Phase:**
 
@@ -60,6 +60,8 @@ Progress: [████████░░] 83%
 | Phase 04 P01 | 5min | 2 tasks | 12 files |
 | Phase 04 P02 | 7min | 3 tasks | 5 files |
 | Phase 05 P01 | 10min | 2 tasks | 11 files |
+| Phase 05 P02 | 5min | 2 tasks | 4 files |
+| Phase 05 P03 | 4min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -98,6 +100,9 @@ Recent decisions affecting current work:
 - [Phase 05]: HTML template literal strings instead of React Email -- worker lacks JSX, alerts are simple
 - [Phase 05]: Vitest 4 constructor mocks require function keyword, not arrow functions
 - [Phase 05]: sendAlertEmail exports _resetClient for test isolation instead of vi.resetModules
+- [Phase 05]: selectDistinct + innerJoin to find users with monitors (skips zero-monitor users at query level)
+- [Phase 05]: Per-user lastDigestSentAt dedup prevents double-sends on same Monday
+- [Phase 05]: No rollup data for a monitor = 100% uptime assumption (new monitors with no checks)
 
 ### Pending Todos
 
@@ -111,6 +116,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-08T05:27:30Z
-Stopped at: Completed 05-01-PLAN.md
-Resume file: .planning/phases/05-incident-detection-and-alerting/05-01-SUMMARY.md
+Last session: 2026-03-08T05:36:48.723Z
+Stopped at: Completed 05-03-PLAN.md
+Resume file: None

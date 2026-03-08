@@ -32,7 +32,7 @@
 
 - [x] **ALR-01**: User receives email when a monitor goes down
 - [x] **ALR-02**: User receives email when a monitor recovers (with downtime duration)
-- [ ] **ALR-03**: User receives a weekly email digest with uptime percentages and notable incidents
+- [x] **ALR-03**: User receives a weekly email digest with uptime percentages and notable incidents
 
 ### Dashboard
 
@@ -105,7 +105,7 @@
 | CHK-03 | Phase 4 | Complete |
 | ALR-01 | Phase 5 | Complete |
 | ALR-02 | Phase 5 | Complete |
-| ALR-03 | Phase 5 | Pending |
+| ALR-03 | Phase 5 | Complete |
 | DASH-01 | Phase 6 | Pending |
 | DASH-02 | Phase 6 | Pending |
 | DASH-03 | Phase 6 | Pending |
