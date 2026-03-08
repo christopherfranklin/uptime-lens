@@ -110,11 +110,11 @@ Plans:
   2. User can view response time line charts for any monitor across 24-hour, 7-day, 30-day, and 90-day windows
   3. User can see uptime percentage for any monitor across 24-hour, 7-day, 30-day, and 90-day windows
   4. User can view a chronological log of downtime incidents for any monitor with start time, end time, and duration
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
+- [ ] 06-01-PLAN.md -- Install Recharts, create data query modules and utilities, upgrade monitor list with status/response-time/uptime and detail page navigation
+- [ ] 06-02-PLAN.md -- Build monitor detail page with response time charts, uptime percentages, incident history, time range selector, and auto-refresh
 
 ### Phase 7: Billing and Plan Enforcement
 **Goal**: Users can start with a free trial and transition to a paid subscription, with monitor creation gated by plan limits
@@ -159,6 +159,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 3. Monitor Management | 2/2 | Complete   | 2026-03-08 |
 | 4. Check Engine | 0/2 | Not started | - |
 | 5. Incident Detection and Alerting | 0/3 | Not started | - |
-| 6. Dashboard | 0/0 | Not started | - |
+| 6. Dashboard | 0/2 | Not started | - |
 | 7. Billing and Plan Enforcement | 0/0 | Not started | - |
 | 8. Production Hardening | 0/0 | Not started | - |
