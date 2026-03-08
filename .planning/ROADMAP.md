@@ -63,11 +63,11 @@ Plans:
   2. User can edit any existing monitor's name, URL/host, expected status code, or check type
   3. User can delete a monitor and all its associated data
   4. User can pause a monitor (stops checks) and resume it (restarts checks)
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Create monitor CRUD server actions with tests, update dashboard page to fetch monitors
+- [ ] 03-02-PLAN.md -- Build monitor list UI, slide-out create/edit panel, delete dialog, and wire to server actions
 
 ### Phase 4: Check Engine
 **Goal**: Monitors are automatically checked in the background every 3 minutes with protocol-specific probes and intelligent retry before failure declaration
@@ -155,7 +155,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Project Foundation | 3/3 | Complete | 2026-03-07 |
 | 2. Authentication | 2/2 | Complete   | 2026-03-07 |
-| 3. Monitor Management | 0/0 | Not started | - |
+| 3. Monitor Management | 0/2 | In progress | - |
 | 4. Check Engine | 0/0 | Not started | - |
 | 5. Incident Detection and Alerting | 0/0 | Not started | - |
 | 6. Dashboard | 0/0 | Not started | - |
