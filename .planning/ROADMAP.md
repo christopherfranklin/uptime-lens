@@ -79,11 +79,11 @@ Plans:
   3. HTTPS monitors have their SSL certificate expiry date extracted and stored with each check
   4. A single check failure does not mark a monitor as down -- 2-3 consecutive failures are required before the monitor is considered failed
   5. Check results are queryable by monitor and time range for downstream dashboard consumption
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md -- Set up worker Drizzle DB client, implement HTTP/TCP/SSL probe modules with tests
+- [ ] 04-02-PLAN.md -- Build check engine tick loop, heartbeat storage, rollup aggregation, and wire into worker
 
 ### Phase 5: Incident Detection and Alerting
 **Goal**: Users are notified by email when their monitors go down, recover, or have expiring SSL certificates, and receive a weekly summary of uptime health
@@ -156,7 +156,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 1. Project Foundation | 3/3 | Complete | 2026-03-07 |
 | 2. Authentication | 2/2 | Complete   | 2026-03-07 |
 | 3. Monitor Management | 2/2 | Complete   | 2026-03-08 |
-| 4. Check Engine | 0/0 | Not started | - |
+| 4. Check Engine | 0/2 | Not started | - |
 | 5. Incident Detection and Alerting | 0/0 | Not started | - |
 | 6. Dashboard | 0/0 | Not started | - |
 | 7. Billing and Plan Enforcement | 0/0 | Not started | - |
