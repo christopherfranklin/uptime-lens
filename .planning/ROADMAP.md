@@ -94,11 +94,12 @@ Plans:
   2. User receives an email when a monitor recovers, including how long it was down
   3. User receives email alerts when an SSL certificate is approaching expiry at 30, 14, 7, and 1 day thresholds
   4. User receives a weekly email digest summarizing uptime percentages and notable incidents across all monitors
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md -- Schema changes (isUp, lastSslAlertDays, lastDigestSentAt), worker email infrastructure (Resend + HTML templates), incident CRUD module
+- [ ] 05-02-PLAN.md -- Incident state machine in check engine tick loop, SSL expiry threshold alerts
+- [ ] 05-03-PLAN.md -- Weekly email digest with uptime percentages and incident summary, wired into maintenance job
 
 ### Phase 6: Dashboard
 **Goal**: Users can see the health of all their monitors at a glance and drill into detailed response time, uptime, and incident data
@@ -157,7 +158,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 | 2. Authentication | 2/2 | Complete   | 2026-03-07 |
 | 3. Monitor Management | 2/2 | Complete   | 2026-03-08 |
 | 4. Check Engine | 0/2 | Not started | - |
-| 5. Incident Detection and Alerting | 0/0 | Not started | - |
+| 5. Incident Detection and Alerting | 0/3 | Not started | - |
 | 6. Dashboard | 0/0 | Not started | - |
 | 7. Billing and Plan Enforcement | 0/0 | Not started | - |
 | 8. Production Hardening | 0/0 | Not started | - |
