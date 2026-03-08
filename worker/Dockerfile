@@ -1,15 +1,16 @@
 FROM node:22-slim AS builder
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY tsconfig.json ./
-COPY src/ ./src/
-RUN npm run build
+COPY worker/package*.json ./worker/
+RUN cd worker && npm ci
+COPY worker/tsconfig.json ./worker/
+COPY worker/src/ ./worker/src/
+COPY lib/ ./lib/
+RUN cd worker && npm run build
 
 FROM node:22-slim
 WORKDIR /app
-COPY package*.json ./
+COPY worker/package*.json ./
 RUN npm ci --production
-COPY --from=builder /app/dist ./dist/
+COPY --from=builder /app/worker/dist ./dist/
 EXPOSE 3001
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/worker/src/index.js"]
