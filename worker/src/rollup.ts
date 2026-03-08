@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import { heartbeatsHourly } from "../../lib/db/schema";
 import type { WorkerDb } from "./db";
+import { maybeProcessWeeklyDigest } from "./digest";
 import type { ProbeResult } from "./probes/types";
 
 const MAINTENANCE_INTERVAL_MS = 4 * 60 * 60 * 1000; // 4 hours
@@ -58,6 +59,7 @@ export function startMaintenanceJob(db: WorkerDb): NodeJS.Timeout {
       console.log("[worker] Running maintenance job...");
       await _aggregateDailyRollups(db);
       await _cleanupOldHeartbeats(db);
+      await maybeProcessWeeklyDigest(db);
       console.log("[worker] Maintenance job complete");
     } catch (err) {
       console.error("[worker] Maintenance job failed:", err);
