@@ -1,30 +1,35 @@
 import "dotenv/config";
-import { neon } from "@neondatabase/serverless";
-import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
+import {
+  createServer,
+  type IncomingMessage,
+  type ServerResponse,
+} from "node:http";
+import { sql } from "drizzle-orm";
+import { createWorkerDb } from "./db";
+import { startCheckEngine } from "./check-engine";
+import { startMaintenanceJob } from "./rollup";
 
 const PORT = parseInt(process.env.PORT || "3001", 10);
 const VERSION = "0.1.0";
 
 /**
  * Verify database connectivity by running a simple SELECT 1 query.
- * Returns true if the connection succeeds, false otherwise.
+ * Uses the Drizzle db client for consistency.
  */
-async function verifyDatabase(): Promise<boolean> {
-  const databaseUrl = process.env.DATABASE_URL;
-  if (!databaseUrl) {
-    console.warn("[worker] DATABASE_URL not set -- skipping database connectivity check");
+async function verifyDatabase(
+  db: ReturnType<typeof createWorkerDb>,
+): Promise<boolean> {
+  if (!process.env.DATABASE_URL) {
+    console.warn(
+      "[worker] DATABASE_URL not set -- skipping database connectivity check",
+    );
     return false;
   }
 
   try {
-    const sql = neon(databaseUrl);
-    const result = await sql`SELECT 1 AS ok`;
-    if (result[0]?.ok === 1) {
-      console.log("[worker] Database connectivity verified");
-      return true;
-    }
-    console.error("[worker] Database returned unexpected result:", result);
-    return false;
+    const result = await db.execute(sql`SELECT 1 AS ok`);
+    console.log("[worker] Database connectivity verified");
+    return true;
   } catch (err) {
     console.error("[worker] Database connectivity check failed:", err);
     return false;
@@ -44,7 +49,7 @@ function createHealthServer(): ReturnType<typeof createServer> {
           status: "ok",
           timestamp: new Date().toISOString(),
           version: VERSION,
-        })
+        }),
       );
     } else {
       res.writeHead(404, { "Content-Type": "application/json" });
@@ -57,10 +62,21 @@ function createHealthServer(): ReturnType<typeof createServer> {
 
 /**
  * Graceful shutdown handler.
+ * Clears check engine and maintenance intervals before closing the HTTP server.
  */
-function setupGracefulShutdown(server: ReturnType<typeof createServer>): void {
+function setupGracefulShutdown(
+  server: ReturnType<typeof createServer>,
+  checkEngineInterval: NodeJS.Timeout,
+  maintenanceInterval: NodeJS.Timeout,
+): void {
   const shutdown = (signal: string) => {
     console.log(`[worker] Received ${signal}, shutting down gracefully...`);
+
+    // Stop check engine and maintenance job
+    clearInterval(checkEngineInterval);
+    clearInterval(maintenanceInterval);
+    console.log("[worker] Check engine stopped");
+
     server.close(() => {
       console.log("[worker] HTTP server closed");
       process.exit(0);
@@ -79,20 +95,30 @@ function setupGracefulShutdown(server: ReturnType<typeof createServer>): void {
 
 /**
  * Main entry point for the Uptime Lens worker process.
- * Phase 4 will add BullMQ and the actual check engine here.
+ * Starts health server, check engine (30s tick loop), and maintenance job (4h interval).
  */
 async function main(): Promise<void> {
   console.log("[worker] Uptime Lens Worker starting...");
 
+  // Create Drizzle DB client
+  const db = createWorkerDb();
+
   // Verify database connectivity
-  await verifyDatabase();
+  await verifyDatabase(db);
 
   // Start health check server
   const server = createHealthServer();
-  setupGracefulShutdown(server);
 
   server.listen(PORT, () => {
     console.log(`[worker] Health check server listening on port ${PORT}`);
+
+    // Start check engine and maintenance job after health server is up
+    const checkEngineInterval = startCheckEngine(db);
+    const maintenanceInterval = startMaintenanceJob(db);
+
+    // Set up graceful shutdown with interval cleanup
+    setupGracefulShutdown(server, checkEngineInterval, maintenanceInterval);
+
     console.log("[worker] Worker ready");
   });
 }
