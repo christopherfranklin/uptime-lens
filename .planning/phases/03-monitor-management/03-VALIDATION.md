@@ -3,7 +3,6 @@ phase: 3
 slug: monitor-management
 status: draft
 nyquist_compliant: true
-wave_0_complete: false
 created: 2026-03-07
 ---
 
@@ -36,26 +35,25 @@ created: 2026-03-07
 
 ## Per-Task Verification Map
 
-| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
-|---------|------|------|-------------|-----------|-------------------|-------------|--------|
-| 03-01-01 | 01 | 1 | MON-01 | unit | `npx vitest run tests/monitors/actions.test.ts` | ❌ W0 | ⬜ pending |
-| 03-01-02 | 01 | 1 | MON-02 | unit | `npx vitest run tests/monitors/actions.test.ts` | ❌ W0 | ⬜ pending |
-| 03-01-03 | 01 | 1 | MON-03 | unit | `npx vitest run tests/monitors/actions.test.ts` | ❌ W0 | ⬜ pending |
-| 03-01-04 | 01 | 1 | MON-04 | unit | `npx vitest run tests/monitors/actions.test.ts` | ❌ W0 | ⬜ pending |
-| 03-02-01 | 02 | 1 | MON-01 | manual | N/A (UI) | N/A | ⬜ pending |
-| 03-02-02 | 02 | 1 | MON-02, MON-04 | manual | N/A (UI) | N/A | ⬜ pending |
-| 03-02-03 | 02 | 1 | MON-03 | manual | N/A (UI) | N/A | ⬜ pending |
+| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | Status |
+|---------|------|------|-------------|-----------|-------------------|--------|
+| 03-01-01 | 01 | 1 | MON-01 | unit (TDD) | `npx vitest run tests/monitors/actions.test.ts` | pending |
+| 03-01-02 | 01 | 1 | MON-02 | unit (TDD) | `npx vitest run tests/monitors/actions.test.ts` | pending |
+| 03-01-03 | 01 | 1 | MON-03 | unit (TDD) | `npx vitest run tests/monitors/actions.test.ts` | pending |
+| 03-01-04 | 01 | 1 | MON-04 | unit (TDD) | `npx vitest run tests/monitors/actions.test.ts` | pending |
+| 03-02-01 | 02 | 2 | MON-01 | build + manual | `npx next build` | pending |
+| 03-02-02 | 02 | 2 | MON-02, MON-04 | build + manual | `npx next build` | pending |
+| 03-02-03 | 02 | 2 | MON-03 | build + manual | `npx next build` | pending |
 
-*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+*Status: pending / green / red / flaky*
 
 ---
 
-## Wave 0 Requirements
+## Test Creation Strategy
 
-- [ ] `tests/monitors/actions.test.ts` — stubs for MON-01 through MON-04 server action tests
-- [ ] Test fixtures for mocked db and session
+Plan 01 Task 1 uses TDD (`tdd="true"`): tests are created as part of the RED phase before implementation. No separate Wave 0 test scaffold is needed -- the TDD task creates `tests/monitors/actions.test.ts` with all test cases inline during execution.
 
-*Existing vitest infrastructure covers framework needs.*
+Plan 02 tasks are UI components verified by `npx next build` (type checking) and a human checkpoint (Task 3).
 
 ---
 
@@ -63,18 +61,18 @@ created: 2026-03-07
 
 | Behavior | Requirement | Why Manual | Test Instructions |
 |----------|-------------|------------|-------------------|
-| Slide-out panel opens on create/edit click | MON-01, MON-02 | UI interaction with animation | Click "Create Monitor" → panel slides in from right |
-| Type-specific fields show/hide | MON-01 | Dynamic form rendering | Select HTTP/TCP/SSL → verify correct fields appear |
-| Delete confirmation dialog | MON-03 | UI dialog flow | Click delete → dialog appears → confirm → monitor removed from list |
-| Paused monitor styling in list | MON-04 | Visual styling verification | Pause monitor → verify gray/dimmed row with "Paused" badge |
+| Slide-out panel opens on create/edit click | MON-01, MON-02 | UI interaction with animation | Click "Create Monitor" -> panel slides in from right |
+| Type-specific fields show/hide | MON-01 | Dynamic form rendering | Select HTTP/TCP/SSL -> verify correct fields appear |
+| Delete confirmation dialog | MON-03 | UI dialog flow | Click delete -> dialog appears -> confirm -> monitor removed from list |
+| Paused monitor styling in list | MON-04 | Visual styling verification | Pause monitor -> verify gray/dimmed row with "Paused" badge |
 
 ---
 
 ## Validation Sign-Off
 
-- [x] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] All tasks have `<automated>` verify commands
 - [x] Sampling continuity: no 3 consecutive tasks without automated verify
-- [x] Wave 0 covers all MISSING references
+- [x] TDD task creates tests inline (no separate Wave 0 needed)
 - [x] No watch-mode flags
 - [x] Feedback latency < 5s
 - [x] `nyquist_compliant: true` set in frontmatter

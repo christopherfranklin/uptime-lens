@@ -60,7 +60,7 @@ Plans:
 **Requirements**: MON-01, MON-02, MON-03, MON-04
 **Success Criteria** (what must be TRUE):
   1. User can create a new monitor by specifying a name, URL or host, and check type (HTTP, TCP, or SSL)
-  2. User can edit any existing monitor's name, URL/host, expected status code, or check type
+  2. User can edit any existing monitor's name, expected status code, timeout, and check interval
   3. User can delete a monitor and all its associated data
   4. User can pause a monitor (stops checks) and resume it (restarts checks)
 **Plans:** 2 plans
