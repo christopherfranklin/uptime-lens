@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Project Foundation** - Scaffold Next.js app, design database schema with rollup strategy, set up dev environment and email infrastructure
 - [x] **Phase 2: Authentication** - Magic link login, persistent sessions, logout, and email change (completed 2026-03-07)
-- [ ] **Phase 3: Monitor Management** - CRUD interface for creating, editing, deleting, and pausing monitors
+- [x] **Phase 3: Monitor Management** - CRUD interface for creating, editing, deleting, and pausing monitors (completed 2026-03-08)
 - [ ] **Phase 4: Check Engine** - Background worker that executes HTTP, TCP, and SSL checks on a 3-minute schedule with retry logic
 - [ ] **Phase 5: Incident Detection and Alerting** - State machine for incident lifecycle plus email notifications on downtime, recovery, SSL expiry, and weekly digest
 - [ ] **Phase 6: Dashboard** - Monitor list with status, response time charts, uptime percentages, and incident history
@@ -51,8 +51,8 @@ Plans:
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md -- Install Better Auth, extend schema with auth tables, configure auth server/client, create API route and email templates
-- [ ] 02-02-PLAN.md -- Build login page, route protection, dashboard shell, settings page with email change and logout
+- [x] 02-01-PLAN.md -- Install Better Auth, extend schema with auth tables, configure auth server/client, create API route and email templates
+- [x] 02-02-PLAN.md -- Build login page, route protection, dashboard shell, settings page with email change and logout
 
 ### Phase 3: Monitor Management
 **Goal**: Users can manage a set of monitors for their sites and services through a complete CRUD interface
@@ -63,11 +63,11 @@ Plans:
   2. User can edit any existing monitor's name, expected status code, timeout, and check interval
   3. User can delete a monitor and all its associated data
   4. User can pause a monitor (stops checks) and resume it (restarts checks)
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 03-01-PLAN.md -- Create monitor CRUD server actions with tests, update dashboard page to fetch monitors
-- [ ] 03-02-PLAN.md -- Build monitor list UI, slide-out create/edit panel, delete dialog, and wire to server actions
+- [x] 03-01-PLAN.md -- Create monitor CRUD server actions with tests, update dashboard page to fetch monitors
+- [x] 03-02-PLAN.md -- Build monitor list UI, slide-out create/edit panel, delete dialog, and wire to server actions
 
 ### Phase 4: Check Engine
 **Goal**: Monitors are automatically checked in the background every 3 minutes with protocol-specific probes and intelligent retry before failure declaration
@@ -155,7 +155,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
 |-------|----------------|--------|-----------|
 | 1. Project Foundation | 3/3 | Complete | 2026-03-07 |
 | 2. Authentication | 2/2 | Complete   | 2026-03-07 |
-| 3. Monitor Management | 0/2 | In progress | - |
+| 3. Monitor Management | 2/2 | Complete   | 2026-03-08 |
 | 4. Check Engine | 0/0 | Not started | - |
 | 5. Incident Detection and Alerting | 0/0 | Not started | - |
 | 6. Dashboard | 0/0 | Not started | - |
