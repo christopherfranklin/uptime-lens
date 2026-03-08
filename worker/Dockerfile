@@ -10,7 +10,7 @@ RUN cd worker && npm run build
 FROM node:22-slim
 WORKDIR /app
 COPY worker/package*.json ./
-RUN npm ci --production
+RUN npm ci --omit=dev
 COPY --from=builder /app/worker/dist ./dist/
 EXPOSE 3001
 CMD ["node", "dist/worker/src/index.js"]
