@@ -20,7 +20,7 @@
 - [x] **MON-04**: User can pause and resume a monitor
 - [x] **MON-05**: User can monitor HTTP(S) URLs with expected status codes
 - [x] **MON-06**: User can monitor TCP port connectivity
-- [ ] **MON-07**: User receives alerts when SSL certificates approach expiry (30, 14, 7, 1 day)
+- [x] **MON-07**: User receives alerts when SSL certificates approach expiry (30, 14, 7, 1 day)
 
 ### Check Engine
 
@@ -30,8 +30,8 @@
 
 ### Alerting
 
-- [ ] **ALR-01**: User receives email when a monitor goes down
-- [ ] **ALR-02**: User receives email when a monitor recovers (with downtime duration)
+- [x] **ALR-01**: User receives email when a monitor goes down
+- [x] **ALR-02**: User receives email when a monitor recovers (with downtime duration)
 - [ ] **ALR-03**: User receives a weekly email digest with uptime percentages and notable incidents
 
 ### Dashboard
@@ -99,12 +99,12 @@
 | MON-04 | Phase 3 | Complete |
 | MON-05 | Phase 4 | Complete |
 | MON-06 | Phase 4 | Complete |
-| MON-07 | Phase 5 | Pending |
+| MON-07 | Phase 5 | Complete |
 | CHK-01 | Phase 4 | Complete |
 | CHK-02 | Phase 4 | Complete |
 | CHK-03 | Phase 4 | Complete |
-| ALR-01 | Phase 5 | Pending |
-| ALR-02 | Phase 5 | Pending |
+| ALR-01 | Phase 5 | Complete |
+| ALR-02 | Phase 5 | Complete |
 | ALR-03 | Phase 5 | Pending |
 | DASH-01 | Phase 6 | Pending |
 | DASH-02 | Phase 6 | Pending |
